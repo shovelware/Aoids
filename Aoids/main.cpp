@@ -2,17 +2,19 @@
 // Headers 
 //////////////////////////////////////////////////////////// 
 
-
+#include "Game.hpp"
 ////////////////////////////////////////////////////////////
 ///Global Variables
 //////////////////////////////////////////////////////////// 
-const int screenW = 1280;
-const int screenH = 720;
-const sf::Mouse mouse;
-const sf::Keyboard keyboard;
+//const int screenW = 1280;
+//const int screenH = 720;
+//const sf::Mouse mouse;
+//const sf::Keyboard keyboard;
 
 int main() 
 {
+	Game g;
+	g.run();
 	// Create the main window 
 	//sf::RenderWindow window(sf::VideoMode(screenW, screenH, 32), "SFML Window");
 	//

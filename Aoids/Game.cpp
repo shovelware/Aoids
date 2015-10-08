@@ -2,15 +2,31 @@
 
 Game::Game() : window_(sf::VideoMode(640, 480, 32), "SFML App")
 {
-
 }
 
 void Game::run()
 {
+	sf::Clock frameClock;
+	sf::Time tickTime = sf::Time(sf::seconds(1.f / 60.f));
+	sf::Time accumulator = sf::Time::Zero;
+
+	//Game loop
 	while (window_.isOpen())
 	{
+		//Get delta time since last frame
+		sf::Time frameTime = frameClock.restart();
+		accumulator += frameTime;
+
+		//Take inputs
 		processEvents();
-		update();
+
+		//Update to number of physics steps
+		while (accumulator >= tickTime)
+		{
+			update(tickTime);
+			accumulator -= tickTime;
+		}
+
 		render();
 	}
 }
@@ -25,13 +41,18 @@ void Game::processEvents()
 	}
 }
 
-void Game::update()
+void Game::update(sf::Time dt)
 {
+	
 }
 
 void Game::render()
 {
 	window_.clear();
+	
+	//cout << "render" << endl;
+
+	//Render stuff
 
 	window_.display();
 }

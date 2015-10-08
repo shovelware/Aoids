@@ -27,7 +27,7 @@ public:
 	void run();
 private:
 	void processEvents();
-	void update();
+	void update(sf::Time dt);
 	void render();
 
 	sf::RenderWindow window_;
