@@ -19,12 +19,23 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "InputAction.hpp"
+
+#include <map>
+using std::map;
+enum buttonsName_t { LEFT, RIGHT, UP, DOWN, ACTION };
+typedef map<buttonsName_t, InputAction> InputMap;
+
+#include "Entity.hpp"
+
 class Game
 {
 
 public:
 	Game();
 	void run();
+	InputMap buttons;
+	Entity player_;
 private:
 	void processEvents();
 	void update(sf::Time dt);
